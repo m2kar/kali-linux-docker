@@ -1,5 +1,5 @@
 FROM kalilinux/kali-linux-docker
-LABEL MAINTAINER="m2kar <m2kar.cn@outlook.com>"
+LABEL MAINTAINER="m2kar <m2kar.cn@gmail.com>"
 
 RUN apt-get update && \
     apt-get install -y -q openssh-server git curl zsh kali-defaults kali-tools-top10  && \
