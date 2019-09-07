@@ -22,7 +22,7 @@ RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/too
 #    apt-get install -y -q kali-linux-wireless && \
  
 VOLUME /data
-ENV SSHD_PORT=22 PUBLIC_KEY
+ENV SSHD_PORT=22 PUBLIC_KEY=
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / # backwards compat
 ENTRYPOINT ["/docker-entrypoint.sh"]
