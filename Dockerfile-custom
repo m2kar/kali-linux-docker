@@ -5,8 +5,8 @@ RUN apt-get update && \
     apt-get install -y -q openssh-server git curl zsh kali-defaults kali-tools-top10  && \
     rm -rf /var/lib/apt/lists/*
 
-RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
-#RUN apt-get -yqq openssh-server,git,curl,zsh,kali-defaults,kali-tools-top10 && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" --unattended
+RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended" && \
+    chsh -s /bin/zsh
 VOLUME /data
 ENV SSHD_PORT=9999 PUBLIC_KEY
 COPY docker-entrypoint.sh /usr/local/bin/
