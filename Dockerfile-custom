@@ -8,6 +8,7 @@ RUN apt-get update && \
 RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
 #RUN apt-get -yqq openssh-server,git,curl,zsh,kali-defaults,kali-tools-top10 && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" --unattended
 VOLUME /data
+ENV SSHD_PORT=9999 PUBLIC_KEY
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s /usr/local/bin/docker-entrypoint.sh / # backwards compat
 ENTRYPOINT ["/docker-entrypoint.sh"]
