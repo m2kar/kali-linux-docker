@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  kali:
+    build: 
+      context: ./
+      dockerfile: Dockerfile-custom
+      network: host
+    image: sec-srv:9005/kali-default:latest
+    network_mode: "host"
+    privileged: true
+    # restart: ""
+    environment:
+      - SSHD_PORT=9999
+      - PUBLIC_KEY='ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA1kY03AW03xrZ0TTkSd2O94F54nOYRZ7GOEBjxnrafiiXZQGLAqWXPOIasnEmQ3n+LZsD9xzFTF97y4XcRO3L3i5X6m7/nh+xx3aewtghtsBphdV/0PKhS3W6A6kKcoiJrcY1HT4eKEJ3s96TFrr4050LH1ONXjR71IoamisbryA3RHIBLodr6+jUJoiyhs7SnC2RYlhKqVB2jfUxffXSmoys4kf7f3C8yByq2uAR40eIotsa1sVn30Ht53ALcWu0TPxpErN+fAGKR4U7fQvtmEVNxIF144HtY2ZijF/qj3EQ8fRzRRaIECw/qqSVLxiHT6cvE+qKnINZrIMuJY0P7Q== rsa 2048-052419'
+    volumes:
+      - "${PWD}:/data"
+    command: ["/bin/sleep","10000000"]
+    # command: ["/usr/bin/python3","/SentryEye/SentryEyeDaemon.py"]

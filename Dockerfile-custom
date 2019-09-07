@@ -1,0 +1,15 @@
+FROM kalilinux/kali-linux-docker
+LABEL MAINTAINER="m2kar <m2kar.cn@outlook.com>"
+
+RUN apt-get update && \
+    apt-get install -y -q openssh-server git curl zsh kali-defaults kali-tools-top10  && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
+#RUN apt-get -yqq openssh-server,git,curl,zsh,kali-defaults,kali-tools-top10 && sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" --unattended
+VOLUME /data
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN ln -s /usr/local/bin/docker-entrypoint.sh / # backwards compat
+ENTRYPOINT ["/docker-entrypoint.sh"]
+WORKDIR /data
+CMD ["postgres"]
