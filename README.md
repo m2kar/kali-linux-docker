@@ -1,3 +1,35 @@
+# Custom Kali Linux Docker
+This Kali is a custom kali .
+I add a 
+ - openssh-server,serve at port22
+ - top10 kali tool
+ - zsh and oh-my-zsh
+ - git
+
+# environments
+ - SSHD_PORT : set ssh server port ,default 22
+ - PUBLIC_KEY : set the authorized_key ,default blank
+
+## todo
+ -[ ]: set default root password
+
+# additional custom
+You could change the `Dockerfile-custom` and add the following meta packet .
+For details about Kali Linux metapackages, check https://www.kali.org/news/kali-linux-metapackages/
+ - kali-linux
+ - kali-linux-all
+ - kali-linux-forensic
+ - kali-linux-full
+ - kali-linux-gpu
+ - kali-linux-pwtools
+ - kali-linux-rfid
+ - kali-linux-sdr
+ - kali-linux-top10
+ - kali-linux-voip
+ - kali-linux-web
+ - kali-linux-wireless
+
+👇👇👇👇👇👇👇👇👇👇👇👇Official Kali Linux Docker👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
 # Official Kali Linux Docker
 This Kali Linux Docker image provides a minimal base install of the latest version of the Kali Linux Rolling Distribution.
 There are no tools added to this image, so you will need to install them yourself. 
